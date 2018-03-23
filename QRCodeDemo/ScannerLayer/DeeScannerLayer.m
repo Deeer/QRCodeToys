@@ -1,18 +1,15 @@
 //
-//  DeeSessionScanView.m
+//  DeeScannerLayer.m
 //  QRCodeDemo
 //
-//  Created by apple on 2018/3/21.
+//  Created by apple on 2018/3/23.
 //  Copyright © 2018年 Dee. All rights reserved.
 //
 
-#import "DeeSessionScanView.h"
+#import "DeeScannerLayer.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-#define ScanY 150           //扫描区域y
-#define ScanWidth 250       //扫描区域宽度
-#define ScanHeight 250      //扫描区域高度
 
 /* 屏幕宽 */
 #define K_SCANNER_SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
@@ -23,12 +20,13 @@
 #define  k_CurrentHeight self.frame.size.height
 #define  k_CurrnetWidth  self.frame.size.width
 
-#define ScanRectMake(x,y,w,h)    CGRectMake(y / k_CurrentHeight, x / k_CurrnetWidth , K_SCANNER_SCREEN_HEIGHT \
+#define ScanRectMake(x,y,w,h)    CGRectMake(y / k_CurrentHeight, x / k_CurrnetWidth ,               K_SCANNER_SCREEN_HEIGHT \
 /k_CurrentHeight,K_SCANNER_SCREEN_WIDTH / k_CurrentHeight) \
 
 #define lxy(x, y, w, h)              CGRectMake(x, y, w, h)
 
-@interface DeeSessionScanView()<AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
+
+@interface DeeScannerLayer()<AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 //一个session 可以有多个input 和 output
 @property(strong, nonatomic) AVCaptureSession *session;
 
@@ -38,15 +36,15 @@
 
 @end
 
-@implementation DeeSessionScanView
+@implementation DeeScannerLayer
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self configScanner];
+- (instancetype)initWithLayerFrame:(CGRect)frame {
+    if (self = [super init]) {
+        self.frame = frame;
+          [self configScanner];
     }
     return self;
 }
-
 
 #pragma mark - interfaceMethod
 
@@ -66,17 +64,21 @@
 }
 
 - (void)startScannerWithResult:(scannerResultCallback)resultblock {
-    if ([self.session isRunning]) {
-        return;
-    }
-    [self.session startRunning];
-    self.myBlock = resultblock;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if ([self.session isRunning]) {
+            return;
+        }
+        [self.session startRunning];
+        self.myBlock = resultblock;
+    });
 }
 
 - (void)stopScanner {
-    if ([self.session isRunning]) {
-        [self.session stopRunning];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        if ([[self session] isRunning]) {
+            [[self session] stopRunning];
+        }
+    });
 }
 
 #pragma mark - privateMehod
@@ -106,8 +108,7 @@
     AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
     previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     previewLayer.frame = self.frame;
-    NSLog(@"%@",NSStringFromCGRect(self.frame));
-    [self.layer addSublayer:previewLayer];
+    [self addSublayer:previewLayer];
     
 }
 
@@ -178,7 +179,6 @@
         //检测光源 - 开启闪光灯
         [self setTorchOn:YES openSuccess:nil];
     }
-    
 }
 
 #pragma mark - setterAndGetter
@@ -189,6 +189,7 @@
     }
     return _session;
 }
+
 
 
 

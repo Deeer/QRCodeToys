@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		187C16CE206249300005AB25 /* DeeSessionScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 187C16CD206249300005AB25 /* DeeSessionScanView.m */; };
+		185A5E172064878000AF39A7 /* DeeQRCodeDemoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A5E162064878000AF39A7 /* DeeQRCodeDemoLayer.m */; };
+		185A5E1B2064A20400AF39A7 /* DeeScannerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A5E1A2064A20400AF39A7 /* DeeScannerLayer.m */; };
 		187C16D120624B060005AB25 /* DeeQRcodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 187C16D020624B060005AB25 /* DeeQRcodeGenerator.m */; };
 		187C16D420624E430005AB25 /* UIImage+generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 187C16D320624E430005AB25 /* UIImage+generator.m */; };
 		187C16D7206257BF0005AB25 /* UIImage+detect.m in Sources */ = {isa = PBXBuildFile; fileRef = 187C16D6206257BF0005AB25 /* UIImage+detect.m */; };
@@ -22,8 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		187C16CC206249300005AB25 /* DeeSessionScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeeSessionScanView.h; sourceTree = "<group>"; };
-		187C16CD206249300005AB25 /* DeeSessionScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeeSessionScanView.m; sourceTree = "<group>"; };
+		185A5E152064878000AF39A7 /* DeeQRCodeDemoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeeQRCodeDemoLayer.h; sourceTree = "<group>"; };
+		185A5E162064878000AF39A7 /* DeeQRCodeDemoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeeQRCodeDemoLayer.m; sourceTree = "<group>"; };
+		185A5E192064A20400AF39A7 /* DeeScannerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeeScannerLayer.h; sourceTree = "<group>"; };
+		185A5E1A2064A20400AF39A7 /* DeeScannerLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeeScannerLayer.m; sourceTree = "<group>"; };
 		187C16CF20624B060005AB25 /* DeeQRcodeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeeQRcodeGenerator.h; sourceTree = "<group>"; };
 		187C16D020624B060005AB25 /* DeeQRcodeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeeQRcodeGenerator.m; sourceTree = "<group>"; };
 		187C16D220624E430005AB25 /* UIImage+generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+generator.h"; sourceTree = "<group>"; };
@@ -80,8 +83,8 @@
 		187C16DA20626AA10005AB25 /* ScanView */ = {
 			isa = PBXGroup;
 			children = (
-				187C16CC206249300005AB25 /* DeeSessionScanView.h */,
-				187C16CD206249300005AB25 /* DeeSessionScanView.m */,
+				185A5E192064A20400AF39A7 /* DeeScannerLayer.h */,
+				185A5E1A2064A20400AF39A7 /* DeeScannerLayer.m */,
 			);
 			path = ScanView;
 			sourceTree = "<group>";
@@ -124,6 +127,8 @@
 				93955832206140440037EA32 /* ViewController.m */,
 				9395584A206160A00037EA32 /* DeeScannerViewController.h */,
 				9395584B206160A00037EA32 /* DeeScannerViewController.m */,
+				185A5E152064878000AF39A7 /* DeeQRCodeDemoLayer.h */,
+				185A5E162064878000AF39A7 /* DeeQRCodeDemoLayer.m */,
 				93955834206140440037EA32 /* Main.storyboard */,
 				93955837206140440037EA32 /* Assets.xcassets */,
 				93955839206140440037EA32 /* LaunchScreen.storyboard */,
@@ -207,8 +212,9 @@
 				187C16D120624B060005AB25 /* DeeQRcodeGenerator.m in Sources */,
 				187C16D420624E430005AB25 /* UIImage+generator.m in Sources */,
 				93955833206140440037EA32 /* ViewController.m in Sources */,
-				187C16CE206249300005AB25 /* DeeSessionScanView.m in Sources */,
+				185A5E172064878000AF39A7 /* DeeQRCodeDemoLayer.m in Sources */,
 				9395584920615A970037EA32 /* DeeScannerPermissionManager.m in Sources */,
+				185A5E1B2064A20400AF39A7 /* DeeScannerLayer.m in Sources */,
 				187C16D7206257BF0005AB25 /* UIImage+detect.m in Sources */,
 				9395583E206140440037EA32 /* main.m in Sources */,
 				9395584C206160A00037EA32 /* DeeScannerViewController.m in Sources */,

@@ -1,23 +1,30 @@
 //
-//  DeeSessionScanView.h
+//  DeeScannerLayer.h
 //  QRCodeDemo
 //
-//  Created by apple on 2018/3/21.
+//  Created by apple on 2018/3/23.
 //  Copyright © 2018年 Dee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 typedef void(^scannerResultCallback)( NSString * _Nullable result);
 
 //session 配置展示类
-@interface DeeSessionScanView : UIView
+@interface DeeScannerLayer : CALayer
+/**
+ 初始化方法
+
+ @param frame layer's frame
+ */
+- (instancetype _Nullable )initWithLayerFrame:(CGRect)frame;
 
 /**
-开启或关闭闪光灯
-
-@param on 开启或关闭
-@param callback 成功回调
-*/
+ 开启或关闭闪光灯
+ 
+ @param on 开启或关闭
+ @param callback 成功回调
+ */
 - (void)setTorchOn:(BOOL)on openSuccess:(void(^_Nullable)(BOOL success))callback;
 
 /**

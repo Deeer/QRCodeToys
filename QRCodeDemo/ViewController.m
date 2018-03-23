@@ -17,7 +17,7 @@
 @implementation ViewController
 - (IBAction)StartAction:(id)sender {
     DeeScannerViewController *vc = [[DeeScannerViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 - (void)viewDidLoad {
